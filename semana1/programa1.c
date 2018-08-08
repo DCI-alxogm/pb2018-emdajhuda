@@ -1,7 +1,7 @@
 /*Creado el 8 de agosto del 2018 por Juda Rodriguez (emdajhuda)*/
 
 #include<stdio.h>
-int.main()
+int main()
 {
 
  printf("Jsjsjs, Qui onda? \n");
