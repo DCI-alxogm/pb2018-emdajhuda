@@ -4,13 +4,13 @@
 int main()
 
 {
-	float a, b, c, d, e, f, g, h;
+	float a, b, c, d, e1, e2, e3 ,e4;
 	printf("En este programa podras hacer los claculos siguientes: \n");
 	printf("1.- e=(a+b)*c/d \n");
 	printf("2.- e=((a+b)*c)/d \n");
 	printf("3.- e=(a+b)*c/d \n");
 	printf("4.- e=a+(b*c)/d \n");
-	printf("Introduce los valores de las variables: \n");
+	printf("Introduce los valores de las variables (Pueden ser decimales): \n");
 	printf("a: \n");
 	scanf("%f", &a);
 	printf("b: \n");
@@ -19,17 +19,18 @@ int main()
 	scanf("%f", &c);
 	printf("d: \n");
 	scanf("%f", &d);
-	e=(a+b)*c/d;
-	f=((a+b)*c)/d;
-	g=(a+b)*c/d;
-	h=a+(b*c)/d;
+	e1=(a+b)*c/d;
+	e2=((a+b)*c)/d;
+	e3=(a+b)*c/d;
+	e4=a+(b*c)/d;
 	printf("Para la 1 \n");
-	printf(":e=%f \n", e);
+	printf("1.- e=%f \n", e1);
 	printf("Para la 2 \n");
-	printf(":e=%f \n", f);
+	printf("2.- e=%f \n", e2);
 	printf("Para la 3 \n");
-	printf(":e=%f \n", g);
+	printf("3.- e=%f \n", e3);
 	printf("Para la 4 \n");
-	printf(":e=%f \n", h);
+	printf("4.- e=%f \n", e4);
 }
-// Me falto agregar los calculos
+/*Acabe el programa el 16 de Agosto del 2018
+Tuve problemas para definir variables, decidi hacer cuatro variables de e y asi poder tener diferentes resultados a la vez*/
