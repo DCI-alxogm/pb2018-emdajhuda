@@ -17,7 +17,7 @@ char nombre[20];
 	printf("Introduce tu edad: \n");
 	scanf("%i", &edad);
 	(edad2028=edad+10);
-	printf("\n %s, tu edad en el 2028 sera: %i años \n", nombre, edad2028);
+	printf("\n%s, tu edad en el 2028 sera: %i años \n", nombre, edad2028);
 return(0);
 
 }
