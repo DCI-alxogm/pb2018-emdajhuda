@@ -1,5 +1,6 @@
 /*Programa creado el 15 de agosto del 2018*/
 int main()
+#include <stdio.h>
 {
 	float a, b, c, d, e1, e2, e3, e4;
 	printf("En este programa podras hacer los claculos siguientes: \n");
@@ -16,6 +17,10 @@ int main()
 	scanf("%i", &c);
 	printf("d: \n");
 	scanf("%i", &d);
+	e1=(a+b)*c/d;
+	e2=((a+b)*c)/d;
+	e3=(a+b)*c/d;
+	e4=a+(b*c)/d;
 	printf("Para la 1 \n");
 	printf(":e=%i \n", e1);
 	printf("Para la 2 \n");
