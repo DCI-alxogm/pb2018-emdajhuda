@@ -2,12 +2,13 @@
 #include <math.h>
 
 int main()
-
+//Corre el programa
 {
 	int op=1, tarea;
 	float C1, F1, K1, C2, F2, x, y, r, theta;
 	char subtarea;
 while(op==1)
+//inicia función while
 {
 	printf("Este programa realiza dos funciones \n");
 	printf("Presiona el número de la función que deseas realizar \n");
@@ -15,8 +16,10 @@ while(op==1)
 	printf("2) Transformar temperaturas \n");
 	scanf("%i", &tarea);
 switch(tarea)
+//Inicia función switch
 {
 		case 1:
+//inicia caso 1
 {
 	printf("Inserta los valores de las coordenadas x, y: \n");
 	printf("x \n");
@@ -53,8 +56,10 @@ switch(tarea)
 	printf("Theta = %f° \n", theta);
 }
 }
+//termina caso 1
 	break;
 		case 2:
+//Inicia caso 2
 {
 	printf("a) Para transformar de °C a °F y °k \n");
 	printf("b) Para transformar de °F a °C \n");
@@ -81,18 +86,23 @@ switch(tarea)
 	printf("Función no disponible");
 }
 }
+//inicia caso 2
 	break;
+
 		default:
+//inicia default
 {
 	printf("Función no disponible \n");
 }
-
+//Termina defualt
 }
+//termina switch
 
 	printf("¿Deseas realizar aguna otra operación?\n");
 	printf("Presiona cualquier 1 si deseas hacerlo y cualquier otro numero si deseas cerrar el programa\n");
 	scanf("%i", &op);
 }
-
+//Termina while
 return 0;
 }
+//Termina el programa
