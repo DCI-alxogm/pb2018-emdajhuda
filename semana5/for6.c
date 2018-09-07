@@ -4,28 +4,33 @@ int main ()
 
 {
 
-	int limite=100, x, j, i;
+	int x1, x2, j, i, r;
 
-	printf("Este programa calcula los numeros primos dentro de un intervalo de 1 y el numero que usted ingrese. \n");
-	printf("Inserte el numero del que desea calcular sus numeros primos: \n");
-	scanf("%i", &x);
+	printf("Este programa calcula los numeros primos dentro de un intervalo de maximo 100 números que usted ingrese. \n");
+	printf("Inserte el intervalo de números de los que desea cálcular los números primos: \n");
+	scanf("%i", &x1);
+	scanf("%i", &x2);
 
-if (x<=limite)
+if (x2-x1<=100)
 	{
 	printf("Sus números primos son: \n");
 
 
-	for (j=1; j<=x; j++)
+	for (j=x1; j<=x2; j++)
 		{
 
 		for (i=2; i<j; i++)
 			{
+			r=0;
 
-			if (j%i==0)
+			for(i=1;i<=j;i++)
 				{
-				
+				if(j%i==0)
+					{
+					r++;
+					}
 				}
-			else
+			if(r==2)
 				{
 				printf("%i \n", j);
 				}
