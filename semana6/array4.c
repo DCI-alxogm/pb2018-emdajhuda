@@ -7,13 +7,13 @@ int main()
 	int i, N=10, gm=0, gh, s1=0, s2=0, s3=0, s4=0, s5=0, s6=0, s7=0, s8=0, s9=0;
 	float genero[10], semestre[10], promedio[10], p=0;
 
-	printf("Ingresen su información: \n");
+
+for (i=0; i<N; i++)
+{
+	printf("Estudiante %i, ingresa tu información: \n", i);
 	printf("Ingresa tu genero: \n");
 	printf("0 = Mujeres \n");
 	printf("1 = Hombres \n");
-for (i=0; i<N; i++)
-{
-	printf("Estudiante %i \n", i);
 	genero[i]=0;
 	scanf("%f", &genero[i]);
 	if (genero[i]<0 |genero[i]>1)
@@ -29,11 +29,8 @@ for (i=0; i<N; i++)
 	{
 	gh++;
 	}
-}
+
 	printf("Ingresa tu semestre: \n");
-for (i=0; i<N; i++)
-{
-	printf("Estudiante %i \n", i);
 	semestre[i]=0;
 	scanf("%f", &semestre[i]);
 	if (semestre[i]<1 |genero[i]>9)
@@ -64,6 +61,7 @@ for (i=0; i<N; i++)
 	if (semestre[i]==6)
 	{
 	s6++;
+	}
 	if (semestre[i]==7)
 	{
 	s7++;
@@ -76,14 +74,11 @@ for (i=0; i<N; i++)
 	{
 	s9++;
 	}	
-}
+
 	printf("Ingresa tu promedio: \n");
-for (i=0; i<N; i++)
-{
-	printf("Estudiante %i \n", i);
 	promedio[i]=0;
 	scanf("%f", &promedio[i]);
-	p=p*promedio[1];
+	p=p+promedio[i];
 }
 p=p/N;
 
@@ -99,6 +94,6 @@ p=p/N;
 	printf("8°:%i \n", s8);
 	printf("9°:%i \n", s9);
 	printf("El promedio de los estudiantes es: %f \n", p);
-}
+
 return 0;
 }
