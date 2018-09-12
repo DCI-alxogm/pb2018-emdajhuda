@@ -1,0 +1,12 @@
+Se capturaron 10 estudiantes de los cuales 6 son mujeres y 4 son hombres. 
+El número de estudiantes por semestre es: 
+1°:3 
+2°:1 
+3°:1 
+4°:1 
+5°:0 
+6°:1 
+7°:1 
+8°:1 
+9°:1 
+El promedio de los estudiantes es: 7.772000 
