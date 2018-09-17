@@ -4,20 +4,29 @@ int main()
 
 {
 
+	FILE* archivo;
+	FILE* data;
 	int i, N=10, gm=0, gh=0, s1=0, s2=0, s3=0, s4=0, s5=0, s6=0, s7=0, s8=0, s9=0;
 	float genero[10], semestre[10], promedio[10], p=0;
-	int 
+	data = fopen("información.txt", "r");
 
 for (i=0; i<N; i++)
 {
+//Lectura de datos
 
-
-	printf("Estudiante %i, ingresa tu información: \n", i);
-	printf("Ingresa tu genero: \n");
-	printf("0 = Mujeres \n");
-	printf("1 = Hombres \n");
 	genero[i]=0;
-	scanf("%f", &genero[i]);
+	fscanf(data, "%f", &genero[i]);
+
+	semestre[i]=0;
+	fscanf(data, "%f", &semestre[i]);
+
+	promedio[i]=0;
+	fscanf(data, "%f", &promedio[i]);
+
+
+//Almacenamiento de datos y cálculos
+//Conteo de personas por genero
+
 	if (genero[i]<0 |genero[i]>1)
 	{
 	printf("Opción invalida. Se cerrara el programa \n");
@@ -32,9 +41,8 @@ for (i=0; i<N; i++)
 	gh++;
 	}
 
-	printf("Ingresa tu semestre: \n");
-	semestre[i]=0;
-	scanf("%f", &semestre[i]);
+//Conteo de personas por semestre
+
 	if (semestre[i]<1 |genero[i]>9)
 	{
 	printf("Opción invalida. Se cerrara el programa \n");
@@ -75,13 +83,14 @@ for (i=0; i<N; i++)
 	if (semestre[i]==9)
 	{
 	s9++;
-	}	
+	}
 
-	printf("Ingresa tu promedio: \n");
-	promedio[i]=0;
-	scanf("%f", &promedio[i]);
+
+//Sumatoria de promedios
 	p=p+promedio[i];
 }
+	fclose(data);
+
 	p=p/N;
 
 	printf("Se capturaron %i estudiantes de los cuales %i son mujeres y %i son hombres. \n", N, gm, gh);
@@ -96,6 +105,22 @@ for (i=0; i<N; i++)
 	printf("8°:%i \n", s8);
 	printf("9°:%i \n", s9);
 	printf("El promedio de los estudiantes es: %f \n", p);
+
+//Esta parte es la que hace el archivo .txt
+archivo = fopen("resumen.txt", "w");
+	fprintf(archivo, "Se capturaron %i estudiantes de los cuales %i son mujeres y %i son hombres. \n", N, gm, gh);
+	fprintf(archivo, "El número de estudiantes por semestre es: \n");
+	fprintf(archivo, "1°:%i \n", s1);
+	fprintf(archivo, "2°:%i \n", s2);
+	fprintf(archivo, "3°:%i \n", s3);
+	fprintf(archivo, "4°:%i \n", s4);
+	fprintf(archivo, "5°:%i \n", s5);
+	fprintf(archivo, "6°:%i \n", s6);
+	fprintf(archivo, "7°:%i \n", s7);
+	fprintf(archivo, "8°:%i \n", s8);
+	fprintf(archivo, "9°:%i \n", s9);
+	fprintf(archivo, "El promedio de los estudiantes es: %f \n", p);
+	fclose(archivo);
 
 return 0;
 }
