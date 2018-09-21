@@ -5,8 +5,8 @@ int main()
 
 	FILE* data;
 	FILE* archivo;
-	int n , j, i, k;
-	float p, a, b, fx, ix=0.0, x, s, e, h=0.0;
+	int n , j, i;
+	float p, a, b, fx, ix=0, x, s, e;
 	
 	data = fopen("ejercicio1in.txt", "r");
 
@@ -14,12 +14,11 @@ int main()
 	fscanf(data, "%f", &a);
 	fscanf(data, "%f", &b);
 	fscanf(data, "%i", &n);
-        fscanf(data, "%i", &k);
+
 	fclose(data);
 
 	x=a;
 	e=(b-a)/n;
-
 	archivo = fopen("ejercicio1out.txt", "w");
 
 	fprintf(archivo, "x\t f(x)\t i(x)\n");
@@ -27,12 +26,11 @@ int main()
 	{
 		fx=pow(x,p);
 		s=0.0;
-		h=(x-a)/k;
-		for (i=1; i<=(k-1); i++)
+		for (i=1; i<=(n-1); i++)
 		{
-			s+=2*(pow((a+(i*h)),p));
+			s+=2*(pow((a+(i*e)),p));
 		}
-	ix=(h/2)*(pow(a,p)+s+pow(b,p));
+	ix=(e/2)*(pow(a,p)+s+pow(b,p));
 	fprintf(archivo, "%f\t %f\t %f\n", x, fx, ix);
 
 	x+=e;
@@ -41,5 +39,4 @@ int main()
 	fclose(archivo);
 return 0;
 }
-
 
