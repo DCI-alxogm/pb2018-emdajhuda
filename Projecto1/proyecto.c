@@ -44,7 +44,7 @@ for (j=0; j<=a; j++)
 		vy[0]=vy0[0]-((h[0]*G*y0[0])/pow(r[0],3));
 		vz[0]=vz0[0]-((h[0]*G*z0[0])/pow(r[0],3));
 
-			if (c%5==0)
+			if (c%500==0)
 			{
 			fprintf(mercurio , "%f,\t %f,\t %f,\t %lf,\t %lf,\t %lf,\n", x[0], y[0], z[0], vx[0], vy[0], vz[0]);
 			}
@@ -75,7 +75,7 @@ for (j=0; j<=a; j++)
 		vy[1]=vy0[1]-((h[1]*G*y0[1])/pow(r[1],3));
 		vz[1]=vz0[1]-((h[1]*G*z0[1])/pow(r[1],3));
 
-			if (c%5==0)
+			if (c%500==0)
 			{
 			fprintf(venus , "%f,\t %f,\t %f,\t %lf,\t %lf,\t %lf,\n", x[1], y[1], z[1], vx[1], vy[1], vz[1]);
 			}
@@ -106,7 +106,7 @@ for (j=0; j<=a; j++)
 		vy[2]=vy0[2]-((h[2]*G*y0[2])/pow(r[2],3));
 		vz[2]=vz0[2]-((h[2]*G*z0[2])/pow(r[2],3));
 
-			if (c%5==0)
+			if (c%500==0)
 			{
 			fprintf(tierra , "%f,\t %f,\t %f,\t %lf,\t %lf,\t %lf,\n", x[2], y[2], z[2], vx[2], vy[2], vz[2]);
 			}
@@ -137,7 +137,7 @@ for (j=0; j<=a; j++)
 		vy[3]=vy0[3]-((h[3]*G*y0[3])/pow(r[3],3));
 		vz[3]=vz0[3]-((h[3]*G*z0[3])/pow(r[3],3));
 
-			if (c%5==0)
+			if (c%500==0)
 			{
 			fprintf(marte , "%f,\t %f,\t %f,\t %lf,\t %lf,\t %lf,\n", x[3], y[3], z[3], vx[3], vy[3], vz[3]);
 			}
@@ -168,7 +168,7 @@ for (j=0; j<=a; j++)
 		vy[4]=vy0[4]-((h[4]*G*y0[4])/pow(r[4],3));
 		vz[4]=vz0[4]-((h[4]*G*z0[4])/pow(r[4],3));
 
-			if (c%5==0)
+			if (c%500==0)
 			{
 			fprintf(jupiter , "%f,\t %f,\t %f,\t %lf,\t %lf,\t %lf,\n", x[4], y[4], z[4], vx[4], vy[4], vz[4]);
 			}
@@ -198,7 +198,7 @@ for (j=0; j<=a; j++)
 		vy[5]=vy0[5]-((h[5]*G*y0[5])/pow(r[5],3));
 		vz[5]=vz0[5]-((h[5]*G*z0[5])/pow(r[5],3));
 
-			if (c%5==0)
+			if (c%500==0)
 			{
 			fprintf(saturno , "%f,\t %f,\t %f,\t %lf,\t %lf,\t %lf,\n", x[5], y[5], z[5], vx[5], vy[5], vz[5]);
 			}
@@ -229,7 +229,7 @@ for (j=0; j<=a; j++)
 		vy[6]=vy0[6]-((h[6]*G*y0[6])/pow(r[6],3));
 		vz[6]=vz0[6]-((h[6]*G*z0[6])/pow(r[6],3));
 
-			if (c%5==0)
+			if (c%500==0)
 			{
 			fprintf(urano , "%f,\t %f,\t %f,\t %lf,\t %lf,\t %lf,\n", x[6], y[6], z[6], vx[6], vy[6], vz[6]);
 			}
@@ -260,7 +260,7 @@ for (j=0; j<=a; j++)
 		vy[7]=vy0[7]-((h[7]*G*y0[7])/pow(r[7],3));
 		vz[7]=vz0[7]-((h[7]*G*z0[7])/pow(r[7],3));
 
-			if (c%5==0)
+			if (c%500==0)
 			{
 			fprintf(neptuno , "%f,\t %f,\t %f,\t %lf,\t %lf,\t %lf,\n", x[7], y[7], z[7], vx[7], vy[7], vz[7]);
 			}
@@ -291,7 +291,7 @@ for (j=0; j<=a; j++)
 		vy[8]=vy0[8]-((h[8]*G*y0[8])/pow(r[8],3));
 		vz[8]=vz0[8]-((h[8]*G*z0[8])/pow(r[8],3));
 
-			if (c%5==0)
+			if (c%500==0)
 			{
 			fprintf(pluton , "%f,\t %f,\t %f,\t %lf,\t %lf,\t %lf,\n", x[8], y[8], z[8], vx[8], vy[8], vz[8]);
 			}
