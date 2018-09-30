@@ -15,8 +15,8 @@ int main()
 
 	int a, j, c;
 	float G, M;
-	float x[9], y[9], z[9], x0[9], y0[9], z0[9], r[9], te[9], h[9], m[9];
-	double vx[9], vy[9], vz[9], vx0[9], vy0[9], vz0[9];
+	float x[9], y[9], z[9], x0[9], y0[9], z0[9], r[9], te[9], h[9];
+	double vx[9], vy[9], vz[9], vx0[9], vy0[9], vz0[9], m[9];
 
 
 G=4*(pow(3.1416,2));
@@ -27,7 +27,7 @@ G=4*(pow(3.1416,2));
 
 for (j=0; j<=8; j++)
 	{
-		fscanf(data, "%f %f %f %f %f %f %lf %lf %lf", &te[j], &h[j], &m[j], &x0[j], &y0[j], &z0[j], &vx0[j], &vy0[j], &vz0[j]);
+		fscanf(data, "%f %f %lf %f %f %f %lf %lf %lf", &te[j], &h[j], &m[j], &x0[j], &y0[j], &z0[j], &vx0[j], &vy0[j], &vz0[j]);
 	}
 	fclose(data);
 
