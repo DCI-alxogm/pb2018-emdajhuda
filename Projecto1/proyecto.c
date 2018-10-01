@@ -1,7 +1,12 @@
+/*Creado el 30 de septiembre del 2018 por Juda Rodriguez (emdajhuda)*/
+//Se incluyo la libreria de math para el calculo de las raices y potencias. 
 #include <stdio.h>
 #include <math.h>
 int main()
+//Definición de variables
+
 {
+	//Primero los documentos
 	FILE* data;
 	FILE* mercurio;
 	FILE* venus;
@@ -12,15 +17,16 @@ int main()
 	FILE* urano;
 	FILE* neptuno;
 	FILE* pluton;
-
+	
+	//Luego las que vamos ausar para escanear, operar e imprimir
 	int a, j, c;
 	float G, M;
 	float x[9], y[9], z[9], x0[9], y0[9], z0[9], r[9], te[9], h[9];
 	double vx[9], vy[9], vz[9], vx0[9], vy0[9], vz0[9], m[9];
 
-
+//Aqui definimos el valor de la constante de gravitación para asi no tener que ponerla en cada operación
 G=4*(pow(3.1416,2));
-
+//Para escanear las variables de forma mas rapida se uso un for con nueve espacios para cada variable, solo la masa del sol se tomo aparte por que es igual para todos los planetas
 	data = fopen("informacion.txt", "r");
 	
 	fscanf(data, "%f", &M);
@@ -30,38 +36,43 @@ for (j=0; j<=8; j++)
 		fscanf(data, "%f %f %lf %f %f %f %lf %lf %lf", &te[j], &h[j], &m[j], &x0[j], &y0[j], &z0[j], &vx0[j], &vy0[j], &vz0[j]);
 	}
 	fclose(data);
-
+//Empezamos el calculo de la orbita de mercurio abriendo el documento donde se van a imprimir los datos
 	mercurio = fopen("mercurio.txt", "w");
+//Primero definimos el numero de calculos a realizar
 a=te[0]/h[0];
+//Despues inicializo un contador para no imprimir todos los datos, asi solo se imprime una fracción de los mismos
 c=0;
+//Se inicia el ciclo de operaciones para la orbita de mercurio. Tendra de limite 0 a "a" y aumentara de 1 en 1.
 for (j=0; j<=a; j++)
 	{
-
+//Aqui se calculara la distacia total, que es la magnitud del vector distancia.
 		r[0]=sqrt(pow(x0[0],2)+pow(y0[0],2)+pow(z0[0],2));
+//Estos son los calculos de la posición
 		x[0]=x0[0]+(vx0[0]*h[0]);
 		y[0]=y0[0]+(vy0[0]*h[0]);
 		z[0]=z0[0]+(vz0[0]*h[0]);
-
+//Este es el calculo de las velocidades
 		vx[0]=vx0[0]-((h[0]*G*M*x0[0])/pow(r[0],3));
 		vy[0]=vy0[0]-((h[0]*G*M*y0[0])/pow(r[0],3));
 		vz[0]=vz0[0]-((h[0]*G*M*z0[0])/pow(r[0],3));
-
+//Aqui se pone de condición de que solo se impriman los datos cada 500 ciclos de operaciones
 			if (c%500==0)
 			{
 			fprintf(mercurio , "%f,\t %f,\t %f,\t %lf,\t %lf,\t %lf,\n", x[0], y[0], z[0], vx[0], vy[0], vz[0]);
 			}
-
+//Se igualan los valores iniciales a los de los resultados para usarlos en el siguinete ciclo.
 		x0[0]=x[0];
 		y0[0]=y[0];
 		z0[0]=z[0];
 		vx0[0]=vx[0];
 		vy0[0]=vy[0];
 		vz0[0]=vz[0];
-
+//Se suma un número al contador
 		c++;
 	}
+//Cerramos el archivo de texto donde se guardan los datos
 	fclose(mercurio);
-
+//Se repite el procedimiento para Venus
 	venus = fopen("venus.txt", "w");
 a=te[1]/h[1];
 c=0;
@@ -92,7 +103,7 @@ for (j=0; j<=a; j++)
 		c++;
 	}
 	fclose(venus);
-
+//Se repite el procedimiento para Tierra
 	tierra = fopen("tierra.txt", "w");
 a=te[2]/h[2];
 c=0;
@@ -123,7 +134,7 @@ for (j=0; j<=a; j++)
 		c++;
 	}
 	fclose(tierra);
-
+//Se repite el procedimiento para Marte
 	marte = fopen("marte.txt", "w");
 a=te[3]/h[3];
 c=0;
@@ -154,7 +165,7 @@ for (j=0; j<=a; j++)
 		c++;
 	}
 	fclose(marte);
-
+//Se repite el procedimiento para Jupiter
 	jupiter = fopen("jupiter.txt", "w");
 a=te[4]/h[4];
 c=0;
@@ -184,7 +195,7 @@ for (j=0; j<=a; j++)
 		c++;
 	}
 	fclose(jupiter);
-
+//Se repite el procedimiento para Saturno
 	saturno = fopen("saturno.txt", "w");
 a=te[5]/h[5];
 c=0;
@@ -215,7 +226,7 @@ for (j=0; j<=a; j++)
 		c++;
 	}
 	fclose(saturno);
-
+//Se repite el procedimiento para Urano
 	urano = fopen("urano.txt", "w");
 a=te[6]/h[6];
 c=0;
@@ -246,7 +257,7 @@ for (j=0; j<=a; j++)
 		c++;
 	}
 	fclose(urano);
-
+//Se repite el procedimiento para Neptuno
 	neptuno = fopen("neptuno.txt", "w");
 a=te[7]/h[7];
 c=0;
@@ -277,7 +288,7 @@ for (j=0; j<=a; j++)
 		c++;
 	}
 	fclose(neptuno);
-
+//Se repite el procedimiento para pluton
 	pluton = fopen("pluton.txt", "w");
 a=te[8]/h[8];
 c=0;
@@ -308,5 +319,7 @@ for (j=0; j<=a; j++)
 		c++;
 	}
 	fclose(pluton);
+//Se termina el programa
 return 0;
 }
+//El programa fue concluido el 01/10/2018 por Judá Rodríguez (emdajhuda)
