@@ -4,26 +4,26 @@
 int main ()
 {
 	int n, j, *d, s=20;
-	v=malloc(n * sizeof);
+	d=malloc(n * sizeof(int));
 
-	printf("Introduce el número de elementos:", &var);
+	printf("Introduce el número de elementos:");
 	scanf("%d", &n);
 
 	if (d==NULL)
 	{
-		printf("Error! memoria no reservada.", v);
+		printf("Error! memoria no reservada.");
 		exit(0);
 	}
 
-	printf("Introduce el número de elementos del arreglo:", *v);
+	printf("Introduce el número de elementos del arreglo:");
 
-	for (i=0; i<n; i++)
+	for (j=0; j<n; j++)
 	{
 		scanf("%d", d+1);
 		s+=*(d+1);
 	}
 
-	printf("s=%d",s)
+	printf("s=%d",s);
 	free(d);
 
 return 0;
