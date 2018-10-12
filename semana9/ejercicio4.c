@@ -1,17 +1,17 @@
 #include <stdio.h>
+float x, x2;
 
 float cuadrado();
 int main()
 {
-float x, x2;
 cuadrado();
-printf("EL cuadrado de %f es %f\n", x, x2);
+printf("%f\n", x2);
 }
 float cuadrado()
 {
-float x, x2;
 printf("Introduce el número del que quieras calculcar su cuadrado:");
 scanf("%f", &x);
-
-return x2=x*x;
+x2=x*x;
+printf("El cuadrado de %f es ", x);
+return x2;
 }

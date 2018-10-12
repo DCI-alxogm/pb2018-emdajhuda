@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 float cuadrado(float s);
 int main()
@@ -14,4 +15,3 @@ float cuadrado(float s)
 {
 return s*s;
 }
-
