@@ -8,84 +8,70 @@ int main(int arg, char *argt[])
 	char *resultados;
 	int N, n, i, j;
 
-	float *T[i][j], l1, l2, l3, l4;
+	float l[4];
 
 	FILE* data;
 	FILE* out;
 
 	printf("El programa que estas ejecutando es: %s\n", argt[0]);
 
-	if(arg==3)
-	{
-
 	datos=argt[1];
 	resultados=argt[2];
+
 	data = fopen(datos, "r");
 
-	fscanf(data, "%f%f%f%f%f", &l1, &l2, &l3, &l4, &n);
+	fscanf(data, "%f %f %f %f %i", &l[0], &l[1], &l[2], &l[3], &n);
 
 	fclose(data);
+
+	float T[n][n];
+
 	N=n*n;
+	n+=2;
 
-	T[][]=(float*) calloc(N, sizeof(int));
-
-	for (i=0; i<n; i++)
+	if(arg==3)
+	{
+	
+	for (j=0; j<n; j++)
 		{
-		for (j=0; j<n; j++)
-			{
-			*T[i][j]=0;
-			}
+		T[0][j]=l[0];
+		}
+	for (j=0; j<n; j++)
+		{
+		T[n][j]=l[1];
 		}
 
 	for (i=0; i<n; i++)
 		{
-		for (j=0; j<n; j++)
-			{
-			if(i==0)
-				{
-				if(j==0)
-					{
-					*T[i][j]=(l1+l3)/4;
-					}
-				else if(j==n)
-					{
-					*T[i][j]=(l1+l4)/4;
-					}
-				else
-					{
-					*T[i][j]=(l1)/4;
-					}
-				}
-			if(i==n)
-				{
-				if(j==0)
-					{
-					*T[i][j]=(l2+l3)/4;
-					}
-				else if(j==n)
-					{
-					*T[i][j]=(l2+l4)/4;
-					}
-				else
-					{
-					*T[i][j]=(l2)/4;
-					}
-				}
-			}
+		T[i][0]=l[3];
 		}
 	for (i=0; i<n; i++)
 		{
+		T[i][n]=l[2];
+		}
 
-		out = fopen(resultados, "w");
-		for (j=0; j<n; j++)
+	for (i=1; i<(n-1); i++)
+		{
+		for (j=1; j<(n-1); j++)
 			{
-		fprintf(out, "%f", *T[i][j]);
-
-		fclose(out);
+			T[i][j]=0;
 			}
 		}
 
-	free(T[][]);
+
+	out = fopen(resultados, "w");
+
+	for (j=0; j<n; j++)
+		{
+		for (i=0; i<n; i++)
+			{
+		fprintf(out, "(%i,%i)%f\t", i, j, T[i][j]);
+			}
+		fprintf(out, "\n");
+		}
+
+	fclose(out);
+
 	}
 	else if(arg>3)
 	{
