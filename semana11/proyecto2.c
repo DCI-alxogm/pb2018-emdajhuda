@@ -6,9 +6,9 @@ int main(int arg, char *argt[])
 
 	char *datos;
 	char *resultados;
-	int N, n, i, j;
+	int N, n, i, j, c, cw=0;
 
-	float l[4];
+	float l[4], em=1, e=0.001;
 
 	FILE* data;
 	FILE* out;
@@ -24,53 +24,76 @@ int main(int arg, char *argt[])
 
 	fclose(data);
 
-	float T[n][n];
-
 	N=n*n;
-	n+=2;
+
+	float T[n+2][n+2], Tv[n+2][n+2], ei[N];
+
+	for (i=0; i<(n+2); i++)
+		{
+		for (j=0; j<(n+2); j++)
+			{
+			T[i][j]=0;
+			Tv[i][j]=0;
+			}
+		}
+
 
 	if(arg==3)
 	{
 	
-	for (j=0; j<n; j++)
+	for (j=1; j<(n+1); j++)
 		{
 		T[0][j]=l[0];
 		}
-	for (j=0; j<n; j++)
+	for (j=1; j<(n+1); j++)
 		{
-		T[n][j]=l[1];
+		T[(n+1)][j]=l[1];
 		}
 
-	for (i=0; i<n; i++)
+	for (i=1; i<(n+1); i++)
 		{
 		T[i][0]=l[3];
 		}
-	for (i=0; i<n; i++)
+	for (i=1; i<(n+1); i++)
 		{
-		T[i][n]=l[2];
+		T[i][(n+1)]=l[2];
 		}
 
-	for (i=1; i<(n-1); i++)
+	while (cw<1000 && em>e)
+	{
+	c=0;
+	for (j=1; j<(n+1); j++)
 		{
-		for (j=1; j<(n-1); j++)
+		for (i=1; i<(n+1); i++)
 			{
-			T[i][j]=0;
+			T[i][j]=(T[i-1][j]+T[i+1][j]+T[i][j+1]+T[i][j-1])/4;
+			ei[c]=((T[i][j]-Tv[i][j])/T[i][j]);
+			c++;
+			Tv[i][j]=T[i][j];
 			}
 		}
-
+	for(c=0; c<N; c++)
+		{
+			if (em < ei[c])
+			{
+				em = ei[c];
+			}
+		}
+		
 
 	out = fopen(resultados, "w");
 
-	for (j=0; j<n; j++)
+	for (j=1; j<(n+1); j++)
 		{
-		for (i=0; i<n; i++)
+		for (i=1; i<(n+1); i++)
 			{
-		fprintf(out, "(%i,%i)%f\t", i, j, T[i][j]);
+		fprintf(out, "%f ", T[i][j]);
 			}
 		fprintf(out, "\n");
 		}
-
 	fclose(out);
+	cw++;
+	}
 
 	}
 	else if(arg>3)
