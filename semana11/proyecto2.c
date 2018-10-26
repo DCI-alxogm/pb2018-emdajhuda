@@ -1,14 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void inicializar(float l1, float l2, float l3, float l4, int n);
+float calculo(float T[i][j], float T[i-1], float T[i+1], float T[i][j+1], float T[i][j-1], int cw, float Tv[i][j]);
+
 int main(int arg, char *argt[])
 {
 
 	char *datos;
-	char *resultados;
 	int N, n, i, j, c, cw=0;
 
-	float l[4], em=1, e=0.001;
+	float l1, l2, l3, l4, em=1, e=0.001;
 
 	FILE* data;
 	FILE* out;
@@ -16,11 +18,10 @@ int main(int arg, char *argt[])
 	printf("El programa que estas ejecutando es: %s\n", argt[0]);
 
 	datos=argt[1];
-	resultados=argt[2];
 
 	data = fopen(datos, "r");
 
-	fscanf(data, "%f %f %f %f %i", &l[0], &l[1], &l[2], &l[3], &n);
+	fscanf(data, "%f %f %f %f %i", &l1, &l2, &l3, &l4, &n);
 
 	fclose(data);
 
@@ -28,36 +29,23 @@ int main(int arg, char *argt[])
 
 	float T[n+2][n+2], Tv[n+2][n+2], ei[N];
 
-	for (i=0; i<(n+2); i++)
+
+	if(arg==2)
+	{
+
+	inicializar(l1, l2, l3, l4, n);
+
+	out = fopen("resultados.txt", "r");
+
+	for (j=0; j<(n+2); j++)
 		{
-		for (j=0; j<(n+2); j++)
+		for (i=0; i<(n+2); i++)
 			{
-			T[i][j]=0;
-			Tv[i][j]=0;
+			fscanf(out, "%f", &T[i][j]);
 			}
 		}
 
-
-	if(arg==3)
-	{
-	
-	for (j=1; j<(n+1); j++)
-		{
-		T[0][j]=l[0];
-		}
-	for (j=1; j<(n+1); j++)
-		{
-		T[(n+1)][j]=l[1];
-		}
-
-	for (i=1; i<(n+1); i++)
-		{
-		T[i][0]=l[3];
-		}
-	for (i=1; i<(n+1); i++)
-		{
-		T[i][(n+1)]=l[2];
-		}
+	fclose(out);
 
 	while (cw<1000 && em>e)
 	{
@@ -81,7 +69,7 @@ int main(int arg, char *argt[])
 		}
 		
 
-	out = fopen(resultados, "w");
+	out = fopen("resultados.txt", "w");
 
 	for (j=1; j<(n+1); j++)
 		{
@@ -96,13 +84,13 @@ int main(int arg, char *argt[])
 	}
 
 	}
-	else if(arg>3)
+	else if(arg>2)
 	{
 		printf("Mas argumentos de los necesarios.\n");
 	}
 	else
 	{
-		printf("Se requiere de al menos 3 argumentos.\n");
+		printf("Se requiere de al menos 2 argumentos.\n");
 	}
 
 return 0;
