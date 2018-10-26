@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 void inicializar(float l1, float l2, float l3, float l4, int n);
-float calculo(float T[i][j], float T[i-1], float T[i+1], float T[i][j+1], float T[i][j-1], int cw, float Tv[i][j]);
 
 int main(int arg, char *argt[])
 {
@@ -29,6 +28,12 @@ int main(int arg, char *argt[])
 
 	float T[n+2][n+2], Tv[n+2][n+2], ei[N];
 
+		for (i=0; i<(n+2); i++)
+		{
+		for (j=0; j<(n+2); j++)
+			{
+			Tv[i][j]=0;
+			}
 
 	if(arg==2)
 	{

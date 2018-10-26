@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-float calculo(float T[i][j], float T[i-1], float T[i+1], float T[i][j+1], float T[i][j-1], int cw, float Tv[i][j])
+float calculo(float T[i][j], float T[i-1], float T[i+1], float T[i][j+1], float T[i][j-1], int c, int cw, float Tv[i][j], int n)
 {
 
+	N=n*n;
+
 	int i, j, c;
+	float ei[N], em;
 	FILE* out;
 
 	c=0;
@@ -19,6 +22,14 @@ float calculo(float T[i][j], float T[i-1], float T[i+1], float T[i][j+1], float 
 			}
 		}
 
+	for(c=0; c<N; c++)
+		{
+			if (em < ei[c])
+			{
+				em = ei[c];
+			}
+		}
+		
 	out = fopen("resultados.txt", "w");
 
 	if(cw%5==0)
@@ -32,4 +43,5 @@ float calculo(float T[i][j], float T[i-1], float T[i+1], float T[i][j+1], float 
 		fprintf(out, "\n");
 		}
 	fclose(out);
+return em;
 }
