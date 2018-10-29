@@ -37,7 +37,7 @@ void inicializar(float l1, float l2, float l3, float l4, int n)
 		}
 
 
-	out = fopen("inicial.txt", "w");
+	out = fopen("0placa.txt", "w");
 
 	for (j=0; j<(n+2); j++)
 		{

@@ -1,8 +1,8 @@
+//Este programa fue hecho por Judá Rodríguez(emdajhuda) el 22 de octubre del 2018.
 #include <stdio.h>
-#include <stdlib.h>
-
+//Aqui indico que voy a usar unar variable para inicializar la matriz.
 void inicializar(float l1, float l2, float l3, float l4, int n);
-
+//Para la función
 int main(int arg, char *argt[])
 {
 
@@ -28,7 +28,6 @@ int main(int arg, char *argt[])
 	N=n*n;
 
 	float T[n+2][n+2], Tv[n+2][n+2], ei[N];
-
 		for (i=0; i<(n+2); i++)
 		{
 		for (j=0; j<(n+2); j++)
@@ -42,7 +41,7 @@ int main(int arg, char *argt[])
 
 	inicializar(l1, l2, l3, l4, n);
 
-	out = fopen("inicial.txt", "r");
+	out = fopen("0placa.txt", "r");
 
 	for (j=0; j<(n+2); j++)
 		{
@@ -54,7 +53,7 @@ int main(int arg, char *argt[])
 
 	fclose(out);
 
-	while (cw<1000 && em>e)
+	while (cw<3000 && em>e)
 	{
 	c=0;
 	for (j=1; j<(n+1); j++)
@@ -77,7 +76,7 @@ int main(int arg, char *argt[])
 	
 	sprintf(placa, "%dplaca.txt", p);
 
-	if(cw%50==0 && em>e)
+	if(cw%50==0)
 		{
 
 		out = fopen(placa, "w");
