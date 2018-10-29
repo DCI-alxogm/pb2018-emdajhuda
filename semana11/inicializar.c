@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 void inicializar(float l1, float l2, float l3, float l4, int n)
 
 {
 	int i, j;
 	float T[n+2][n+2];
 
-	FILE* out;	
+	FILE* out;
 
 	for (i=0; i<(n+2); i++)
 		{
@@ -35,7 +36,8 @@ void inicializar(float l1, float l2, float l3, float l4, int n)
 		T[i][(n+1)]=l3;
 		}
 
-	out = fopen("resultados.txt", "w");
+
+	out = fopen("inicial.txt", "w");
 
 	for (j=0; j<(n+2); j++)
 		{
@@ -47,5 +49,5 @@ void inicializar(float l1, float l2, float l3, float l4, int n)
 		}
 
 	fclose(out);
-	
+
 }

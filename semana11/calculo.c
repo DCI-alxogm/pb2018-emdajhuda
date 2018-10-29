@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-float calculo(float T[i][j], float T[i-1], float T[i+1], float T[i][j+1], float T[i][j-1], int c, int cw, float Tv[i][j], int n)
+float calculo(float **T[][], int c, int cw, float **Tv[][], int n)
 {
 
 	N=n*n;

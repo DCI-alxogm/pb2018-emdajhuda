@@ -7,7 +7,8 @@ int main(int arg, char *argt[])
 {
 
 	char *datos;
-	int N, n, i, j, c, cw=0;
+	char placa[20];
+	int N, n, i, j, c, cw=0, p=1;
 
 	float l1, l2, l3, l4, em=1, e=0.001;
 
@@ -34,13 +35,14 @@ int main(int arg, char *argt[])
 			{
 			Tv[i][j]=0;
 			}
+		}
 
 	if(arg==2)
 	{
 
 	inicializar(l1, l2, l3, l4, n);
 
-	out = fopen("resultados.txt", "r");
+	out = fopen("inicial.txt", "r");
 
 	for (j=0; j<(n+2); j++)
 		{
@@ -72,19 +74,26 @@ int main(int arg, char *argt[])
 				em = ei[c];
 			}
 		}
-		
+	
+	sprintf(placa, "%dplaca.txt", p);
 
-	out = fopen("resultados.txt", "w");
-
-	for (j=1; j<(n+1); j++)
+	if(cw%50==0 && em>e)
 		{
-		for (i=1; i<(n+1); i++)
+
+		out = fopen(placa, "w");
+
+		for (j=1; j<(n+1); j++)
 			{
-		fprintf(out, "%f ", T[i][j]);
+			for (i=1; i<(n+1); i++)
+				{
+				fprintf(out, "%f ", T[i][j]);
+				}
+			fprintf(out, "\n");
 			}
-		fprintf(out, "\n");
-		}
-	fclose(out);
+		fclose(out);
+		p++;
+		}		
+
 	cw++;
 	}
 
